@@ -1,0 +1,129 @@
+<!--
+/**
+    * @author _ Pathum_Kaleesha
+    * @created - 2022-02-19 - 10.19
+    * @since - v0.1.0 - CSS
+**/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="assests/boostrap/css/bootstrap.min.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="assests/styles/Styles.css">
+    <style>
+        /*body>nav>ul:nth-child(1)>li:nth-child(1)>h3:nth-child(1){
+            position: absolute;
+
+            left: 0;
+        }
+        body>div:nth-child(2)>div:nth-child(2)>input{
+            border-color: lightskyblue;
+        }
+        body>div:nth-child(2)>h3:nth-child(1){
+            position: absolute;
+            top: 10%;
+        }
+        body>div:nth-child(2)>div:nth-child(2){
+            position: absolute;
+            top: 18%;
+
+        }
+        body>div:nth-child(3){
+            position: absolute;
+            right: 0;
+            top: 65%;
+        }  body>div:nth-child(4){
+            position: absolute;
+            right: 2%;
+            top: 10%;
+        }*/
+    </style>
+</head>
+<body>
+<!--Navigation-->
+<nav>
+    <ul class="nav justify-content-end bg-primary">
+        <li>
+            <h3 class="text-white">Customer Manage</h3>
+        </li>
+        <li class="nav-item ">
+            <a aria-current="page" class="nav-link active text-danger" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-danger" href="#">Customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-danger" href="#">Item</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link text-danger">Orders</a>
+        </li>
+    </ul>
+</nav>
+<!--customer Registration-->
+<div class="container-fluid">
+    <h3>Customer Registraion</h3>
+    <div class="mb-3 col-5" >
+        <label for="customer_Id" class="form-label">Customer ID</label>
+        <input type="email" class="form-control" id="customer_Id" placeholder="">
+     <label for="customer_Name" class="form-label">Customer Name</label>
+        <input type="email" class="form-control" id="customer_Name" placeholder="">
+     <label for="customer_Address" class="form-label">Customer Addrerss</label>
+        <input type="email" class="form-control" id="customer_Address" placeholder="">
+        <label class="form-label" for="customer_salary">Customer Sallary</label>
+        <input class="form-control" id="customer_salary" placeholder="" type="email">
+    </div>
+</div>
+<!--Button CRUD-->
+<div class="container-fluid">
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-info">Save Customer</button>
+        <button type="button" class="btn btn-danger">Remove</button>
+        <button type="button" class="btn btn-warning">Update</button>
+        <button type="button" class="btn btn-success">Get All</button>
+        <button type="button" class="btn btn-danger">Clear All</button>
+    </div>
+</div>
+
+<!--Customer Details table-->
+<div class="col-6">
+    <table class="table table-bordered">
+        <thead class="bg-danger text-black ">
+        <tr>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Customer Address</th>
+            <th>Customer Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>C00-001</td>
+            <td>Kamal</td>
+            <td>Galle</td>
+            <td>10000.00</td>
+        </tr><tr>
+            <td>C00-001</td>
+            <td>Nipun</td>
+            <td>Mathara</td>
+            <td>25000.00</td>
+        </tr>
+        <tr>
+            <td>C00-003</td>
+            <td>Sunil</td>
+            <td>Colombo</td>
+            <td>50000.00</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script crossorigin="anonymous" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        src="assests/boostrap/js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        src="assests/boostrap/js/bootstrap.min.js"></script>
+</body>
+</html>
