@@ -1,0 +1,36 @@
+/**
+    * @author _ Pathum_Kaleesha
+    * @created - 2022-02-19 - 19.39
+    * @since - v0.1.0 - CSS
+**/
+
+
+.myCard{
+    width: 100%;
+    height: 300px;
+    background: #3c5168;
+    border-radius: 10px;
+}
+.myCard>i{
+    color: white;
+    font-size: 7em;
+    text-align: center;
+    display: block;
+    padding-top: 35px;
+}
+
+.myCard>h1{
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    font-family: Ubuntu;
+    padding-top: 20px;
+}
+
+.myCard>h2{
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    font-family: Ubuntu;
+    padding-top: 2px;
+}
