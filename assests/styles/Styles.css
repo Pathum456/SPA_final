@@ -3,14 +3,34 @@
     * @created - 2022-02-19 - 19.39
     * @since - v0.1.0 - CSS
 **/
+.nav-item {
+    font-weight: bold;
+    font-size: 20px;
+}
 
-#homediv{
+body > nav > div > a {
+    color: skyblue !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#homediv {
     position: fixed;
 
     padding: 20px;
     z-index: 100;
 }
-.myCard{
+
+.myCard {
 
     width: 100%;
     height: 250px;
@@ -18,16 +38,17 @@
     border-radius: 10px;
 
 }
-.myCard>i{
+
+.myCard > i {
     color: #dfc2c4;
     font-size: 5em;
     text-align: center;
     display: block;
     padding-top: 35px;
-    opacity:0.6;
+    opacity: 0.6;
 }
 
-.myCard>h1{
+.myCard > h1 {
     color: white;
     font-size: 2em;
     text-align: center;
@@ -36,24 +57,33 @@
 
 }
 
-.myCard>h2{
+.myCard > h2 {
     color: white;
     font-size: 3em;
     text-align: center;
     font-family: Ubuntu;
     padding-top: 2px;
 }
-.manageCustomer{
+
+.manageCustomer {
     background-color: skyblue;
 }
-.navtop{
-    background: rgb(30,30,30);opacity:0.8;
+
+.navtop {
+    background: rgb(30, 30, 30);
+    opacity: 0.8;
 }
-.navigation:hover{
-  color: red !important;
+
+.navigation:hover {
+    color: red !important;
 }
-.cm{
+
+.cm {
     position: relative;
-left: 12px;
-    
+    left: 12px;
+
+}
+
+.od {
+
 }
