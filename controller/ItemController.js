@@ -35,14 +35,20 @@ $("#addItem").click(function ( ){
 });
 
 function saveItem(){
-    let itemID = $("#itemId").val();
-    let itemName = $("#ItemName").val();
-    let itemQty = $("#itemQty").val();
-    let unitPrice = $("#unitPrice").val();
+    if ($("#itemId").val()==("") || $("#ItemNamee").val()== ("") || $("#itemQty").val()==("") ||$("#unitPrice").val()==("")){
+        swal("Text fields can't be null...!", "Clicked the button!", "error");
+    }else {
+        let itemID = $("#itemId").val();
+        let itemName = $("#ItemName").val();
+        let itemQty = $("#itemQty").val();
+        let unitPrice = $("#unitPrice").val();
 
-    var Item= new ItemDTO(itemID,itemName,itemQty,unitPrice);
-    itemDB.push(Item);
-    clearAll();
+        var Item = new ItemDTO(itemID, itemName, itemQty, unitPrice);
+        itemDB.push(Item);
+        swal("Item Saved...!", "Clicked the button!", "success");
+        clearAll();
+    }
+
 
 }
 
@@ -60,7 +66,8 @@ $("#itemId").keyup(function () {
 
 /* Item Update*/
 $("#updateItem").click(function () {
-    for (var i in customerDB ){
+    for (var i in customerDB ){ 
+        swal("In", "Clicked the button!", "success");
         if ($("#itemId").val() == itemDB[i].getItemName()){
             let itemId = $("#itemId").val();
             let itemName = $("#ItemName").val();
@@ -71,8 +78,10 @@ $("#updateItem").click(function () {
             itemDB[i].setName(item.getItemName());
             itemDB[i].setAddress(item.getItemQTY());
             itemDB[i].setContact(item.getPrice());
+
         }
     }
+    swal("Item Updated...!", "Clicked the button!", "success");
     loadAllItem();
     clearAll();
 
@@ -82,6 +91,7 @@ $("#deleteItem").click( function () {
     for(var i in itemDB) {
         if ($("#itemId").val() == itemDB[i].getItemCode()){
             itemDB.splice(i,1);
+            swal("Item Deleted..!", "Clicked the button!", "success");
         }
     }
     /*End of the Delete Button*/
@@ -91,7 +101,8 @@ $("#deleteItem").click( function () {
 
 function clearAll() {
     $('#itemId,#ItemName,#itemQty,#unitPrice').val("");
-    //$('#itemId,#ItemName,#itemQty,#unitPrice').css('border', '2px solid #ced4da');
+   $('#itemId,#ItemName').css('border', '2px solid #ced4da');
+   $('#itemQty,#unitPrice').css('border', '2px solid #ced4da');
     $('#itemId').focus();
     $("#addItem").attr('disabled', false);
     loadAllItem();

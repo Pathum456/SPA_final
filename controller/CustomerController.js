@@ -1,5 +1,9 @@
+/**
+ * @author _ Pathum_Kaleesha
+ * @create - 2022-03-02 - 09.12
+ * @since - v0.1.0
+ **/
 var regExCusID = /^(C-)[0-9]{3,4}$/;
-
 function loadAllCustomer() {
     $("#customerTable").empty();
     for (let i = 0; i < customerDB.length; i++) {
@@ -7,12 +11,8 @@ function loadAllCustomer() {
         let customerName =customerDB[i].getName();
         let customerAddress = customerDB[i].getAddress();
         let Contact = customerDB[i].getContact();
-
-
         let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${Contact}</td></tr>`;
-
         $("#customerTable").append(row);    }
-
     $("#customerTable>tr").click(function () {
         $("#cusID").val($(this).children(":eq(0)").text());
         $("#cusName").val($(this).children(":eq(1)").text());
@@ -23,20 +23,25 @@ function loadAllCustomer() {
 
 $("#addCustomer").click(function ( ){
     saveCustomer();
-    loadAllCustomer();
-    clearAll();
-
 });
 
 function saveCustomer(){
-    let customerID = $("#cusID").val();
-    let customerName = $("#cusName").val();
-    let customerAddress = $("#cusAddress").val();
-    let customerTP = $("#contact").val();
+    if ($("#cusID").val()==("") || $("#cusName").val()== ("") || $("#cusAddress").val()==("") ||$("#contact").val()==("")
+){
+        swal("Text fields can't be null...!", "Clicked the button!", "error");
 
-    var Customer= new CustomerDTO(customerID,customerName,customerAddress,customerTP);
-    customerDB.push(Customer);
-    clearAll();
+    }else {
+        let customerID = $("#cusID").val();
+        let customerName = $("#cusName").val();
+        let customerAddress = $("#cusAddress").val();
+        let customerTP = $("#contact").val();
+        var Customer = new CustomerDTO(customerID, customerName, customerAddress, customerTP);
+        customerDB.push(Customer);
+        swal("Customer Saved...!", "Clicked the button!", "success");
+        loadAllCustomer();
+       // $("#cusID,#cusName,#cusAddress,#contact").val("");
+        clearAllC();
+    }
 }
 
 
@@ -58,34 +63,61 @@ $("#updateCustomer").click(function () {
             let customerName = $("#cusName").val();
             let customerAddress = $("#cusAddress").val();
             let customerContact = $("#contact").val();
-
             var customer = new CustomerDTO(customerID,customerName,customerAddress,customerContact);
             customerDB[i].setName(customer.getName());
             customerDB[i].setAddress(customer.getAddress());
             customerDB[i].setContact(customer.getContact());
+            swal("Customer Updated...!", "Clicked the button!", "success");
         }
     }
+    clearAllC()
     loadAllCustomer();
-    clearAll();
+
 
 });
 /*Delete Customer*/
 $("#deleteCustomer").click( function () {
+
     for(var i in customerDB) {
         if ($("#cusID").val() == customerDB[i].getID()){
-            customerDB.splice(i,1);
+
+                customerDB.splice(i,1);
+
         }
     }
     /*End of the Delete Button*/
+    clearAllC()
     loadAllCustomer();
-    clearAll();
+
+});
+$("#searchCustomer").click(function (){
+    searchCustomer();
 });
 
-function clearAll() {
-    $('#cusID,#cusName,#cusAddress,#contact').val("");
-    $('#cusID,#cusName,#cusAddress,#contact').css('border', '2px solid #ced4da');
+function searchCustomer() {
+    for (var i in customerDB ){
+        if ($("#cusID").val() === customerDB[i].getID()){
+
+            let a = customerDB[i];
+            $("#cusID").val(a.getID());
+            $("#cusName").val(a.getName());
+            $("#cusAddress").val(a.getAddress());
+            $("#contact").val(a.getContact());
+            alert("search in");
+        }
+
+    }
+    alert("search out");
+    loadAllCustomer();
+
+}
+//,
+function clearAllC() {
+    $("#cusID,#cusName,#cusAddress,#contact").val("");
+    $('#cusID,#cusName').css('border', '2px solid #ced4da');
+    $('#cusAddress,#contact').css('border', '2px solid #ced4da');
     $('#cusID').focus();
     $("#addCustomer").attr('disabled', false);
-    loadAllCustomer();
+
 
 }
