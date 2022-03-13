@@ -87,3 +87,30 @@ body > nav > div > a {
 .od {
 
 }
+
+.crd-t{
+    background: #86b7fe;
+}
+.crd3{
+    background: skyblue;;
+
+}
+#placeOrder{
+    background-color: aqua ;
+    opacity: 0.6;
+}
+#oTable{
+    background: lightblue;
+}
+#tHover{
+    background: transparent;
+    opacity: 0.5;
+}
+#tHover:hover{
+    opacity: unset;
+}
+.pop{
+    opacity: 0.7;
+}.pop:hover{
+    opacity: unset;
+}

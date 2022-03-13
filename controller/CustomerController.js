@@ -42,6 +42,7 @@ function saveCustomer(){
        // $("#cusID,#cusName,#cusAddress,#contact").val("");
         clearAllC();
     }
+    loadCustomerIds();
 }
 
 
@@ -73,7 +74,7 @@ $("#updateCustomer").click(function () {
     clearAllC()
     loadAllCustomer();
 
-
+    loadCustomerIds();
 });
 /*Delete Customer*/
 $("#deleteCustomer").click( function () {
@@ -88,26 +89,24 @@ $("#deleteCustomer").click( function () {
     /*End of the Delete Button*/
     clearAllC()
     loadAllCustomer();
+    loadCustomerIds();
 
 });
+
+
 $("#searchCustomer").click(function (){
     searchCustomer();
 });
-
 function searchCustomer() {
-    for (var i in customerDB ){
-        if ($("#cusID").val() === customerDB[i].getID()){
-
-            let a = customerDB[i];
-            $("#cusID").val(a.getID());
-            $("#cusName").val(a.getName());
-            $("#cusAddress").val(a.getAddress());
-            $("#contact").val(a.getContact());
-            alert("search in");
+    let val = $("#srcCusID").val();
+    for (let i = 0; i < customerDB.length; i++) {
+        if (customerDB[i].getID() == val){
+            $('#cusID').val(customerDB[i].getID());
+            $("#cusName").val(customerDB[i].getName());
+            $("#cusAddress").val(customerDB[i].getAddress());
+            $("#contact").val(customerDB[i].getContact());
         }
-
     }
-    alert("search out");
     loadAllCustomer();
 
 }
@@ -120,4 +119,12 @@ function clearAllC() {
     $("#addCustomer").attr('disabled', false);
 
 
+}
+function loadCustomerIds() {
+    $("#cmbOrderCustId").empty();
+    $('#cmbOrderCustId').append(new Option("Customer ID", ""));
+    for (var i in customerDB){
+        let id=customerDB[i].getID();
+        $('#cmbOrderCustId').append(new Option(id, id));
+    }
 }
